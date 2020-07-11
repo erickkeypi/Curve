@@ -1,0 +1,3 @@
+Curve	KEYWORD1
+initialize	KEYWORD2
+compute	KEYWORD2
