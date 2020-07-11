@@ -18,10 +18,29 @@ Curve::Curve(){
 
 }
 
-Curve::initialize(float _x, float _y, int _size){
+void Curve::initialize(float _x[],float _y[],int _size){
+  // for(int i =0; i<_size;i++){
+  //   X[i]=_x[i];
+  //   Y[i]=_y[i];
+  // }
 
+  X=_x;
+  Y=_y;
+  size= _size;
 }
 
-Curve::compute(float xin){
-  
+float Curve::compute(float xin){
+  float res =0;
+  for (int i=0;i<size-1;i++){
+    if((xin<=X[i+1] && xin>=X[i]) || (xin>=X[i+1] && xin<=X[i])){
+      // Serial.println("l");
+      // Serial.println(X[i]);
+      // Serial.println(X[i+1]);
+      // Serial.println(Y[i]);
+      // Serial.println(Y[i+1]);
+      res = (((Y[i+1]-Y[i])*(xin-X[i]))/(X[i+1]-X[i]))+Y[i];
+      break;
+    }
+  }
+  return res;
 }

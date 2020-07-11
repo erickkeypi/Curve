@@ -17,14 +17,14 @@ last revision July/11/2020
 #define _CURVE_H
 #include "Arduino.h"
 
-Class Curve {
+class Curve {
 private:
-  float X[];
-  float Y[];
+  float *X;
+  float *Y;
   int size;
 public:
   Curve();
   void initialize(float _x[],float _y[],int _size);
   float compute(float xin);
-}
+};
 #endif
